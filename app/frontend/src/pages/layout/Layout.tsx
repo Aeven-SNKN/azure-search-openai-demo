@@ -41,7 +41,6 @@ const Layout = () => {
                 <div className={styles.headerContainer} ref={menuRef}>
                     <Link to="/" className={styles.headerTitleContainer}>
                         <h3 className={styles.headerTitle}>{t("headerTitle")}</h3>
-                        {!logoError ? <img src="./logo.png" alt="Logo" className={styles.headerLogo} onError={() => setLogoError(true)} /> : null}
                     </Link>
                     <nav>
                         <ul className={`${styles.headerNavList} ${menuOpen ? styles.show : ""}`}>

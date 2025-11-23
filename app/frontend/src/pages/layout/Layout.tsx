@@ -11,6 +11,7 @@ import { IconButton } from "@fluentui/react";
 const Layout = () => {
     const { t } = useTranslation();
     const [menuOpen, setMenuOpen] = useState(false);
+    const [logoError, setLogoError] = useState(false);
     const menuRef: RefObject<HTMLDivElement> = useRef(null);
 
     const toggleMenu = () => {
@@ -40,7 +41,7 @@ const Layout = () => {
                 <div className={styles.headerContainer} ref={menuRef}>
                     <Link to="/" className={styles.headerTitleContainer}>
                         <h3 className={styles.headerTitle}>{t("headerTitle")}</h3>
-                        <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Logo" className={styles.headerLogo} />
+                        {!logoError ? <img src="./logo.png" alt="Logo" className={styles.headerLogo} onError={() => setLogoError(true)} /> : null}
                     </Link>
                     <nav>
                         <ul className={`${styles.headerNavList} ${menuOpen ? styles.show : ""}`}>
